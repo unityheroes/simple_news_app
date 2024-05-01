@@ -17,6 +17,6 @@ class HomeViews extends StatelessWidget {
             ),
           ]),
         ),
-        body: CategoryCardListView());
+        body: const CategoryCardListView());
   }
 }
