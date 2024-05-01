@@ -27,6 +27,9 @@ class HomeViews extends StatelessWidget {
               SliverToBoxAdapter(
                 child: CategoryCardListView(),
               ),
+              SliverToBoxAdapter(
+                child: Padding(padding: EdgeInsets.only(bottom: 6)),
+              ),
               NewsListView()
             ],
           )),
