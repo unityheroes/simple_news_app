@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:simple_news_app/models/article_model.dart';
 
 class NewsPost extends StatelessWidget {
-  const NewsPost({super.key});
-
+  const NewsPost({super.key, required this.articleModel});
+  final ArticleModel articleModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -11,7 +12,8 @@ class NewsPost extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: Image.network(
-            "https://news.microsoft.com/wp-content/uploads/prod/sites/555/2020/02/asd.jpg",
+            articleModel.image ??
+                "https://t3.ftcdn.net/jpg/03/27/55/60/360_F_327556002_99c7QmZmwocLwF7ywQ68ChZaBry1DbtD.jpg",
             height: 200,
             width: double.infinity,
             fit: BoxFit.fill,
@@ -20,11 +22,11 @@ class NewsPost extends StatelessWidget {
         const SizedBox(
           height: 6,
         ),
-        const Text(
-          "بناء استراتيجية أمنية قوية تُصعّب من مهام المخترقين",
+        Text(
+          articleModel.title,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 16,
             fontWeight: FontWeight.bold,
@@ -33,10 +35,10 @@ class NewsPost extends StatelessWidget {
         const SizedBox(
           height: 6,
         ),
-        const Text(
-          'زيادة في الهجمات الإلكترونية تهدد الشركات في تركيا، وخبراء يتحولون إلى مقرصنين للتصدي للتهديدات السيبرانية',
+        Text(
+          articleModel.description ?? " ",
           maxLines: 2,
-          style: TextStyle(color: Colors.grey, fontSize: 14),
+          style: const TextStyle(color: Colors.grey, fontSize: 14),
         )
       ],
     );
