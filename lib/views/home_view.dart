@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_news_app/services/news_services.dart';
 import 'package:simple_news_app/widgets/category_card_list_view.dart';
 import 'package:simple_news_app/widgets/new_list_view_builder.dart';
 
@@ -26,7 +27,9 @@ class HomeViews extends StatelessWidget {
               SliverToBoxAdapter(
                 child: CategoryCardListView(),
               ),
-              NewListViewBuilder()
+              NewListViewBuilder(
+                newsCategory: NewsCategory.general,
+              )
             ],
           )),
     );
